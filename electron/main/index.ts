@@ -73,7 +73,12 @@ async function createWindow() {
   
   ipcMain.handle("fullscreen-window", () => {
     if (!win) return
-    win.setFullScreen(!win.isFullScreen())
+
+    if (!win.isMaximized()) {
+      win.maximize()
+    } else {
+      win.unmaximize()
+    }
   })
 
   ipcMain.on('set-ignore-mouse-events', (event, ignore, options) => {
