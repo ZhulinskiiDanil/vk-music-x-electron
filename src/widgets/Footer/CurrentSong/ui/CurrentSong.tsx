@@ -4,7 +4,7 @@ export function CurrentSong() {
   return <div className={styles.song}>
     <div className={styles.image}>
       <img
-        src="https://www.google.com/favicon.ico"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjNFOPsz_JSGT3Bq0wlUIEwybFHmaBMOeQg&usqp=CAU"
         alt="Song Icon"
       />
     </div>

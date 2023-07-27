@@ -1,0 +1,74 @@
+header.header {
+  $one: calc(1vh + 4vw);
+  $title: min($one, 3.6rem);
+  z-index: 1;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 6rem 2rem 2rem 2rem;
+  gap: 1rem;
+  background: rgb(var(--avgColor));
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 200%;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, 0, 0);
+    height: 200px;
+    background: rgb(var(--avgColor) / 80%);
+    filter: blur(150px);
+  }
+
+  .image {
+    flex-shrink: 0;
+    $size: min(calc($one * 3), 12rem);
+    width: $size;
+    height: $size;
+    background: #222;
+    box-shadow: 0 0 3rem 0 rgba(0, 0, 0, .5);
+    object-fit: cover;
+
+    &.icon {
+      padding: 2rem !important;
+      border-radius: .8rem;
+    }
+  }
+
+  .data {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: .5rem;
+    padding-bottom: .4rem;
+
+    .type {
+      opacity: .4;
+      font-weight: 300;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: $title;
+    }
+
+    .description {
+      font-size: .8rem;
+      opacity: .8;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: calc($title * .1);
+    }
+
+    .user {
+      font-size: .8rem;
+
+      .username {
+        font-weight: 600;
+      }
+    }
+  }
+}

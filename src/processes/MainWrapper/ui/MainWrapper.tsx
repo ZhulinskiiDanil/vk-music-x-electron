@@ -4,11 +4,11 @@ import { PropsWithChildren } from 'react'
 // Components
 import { Content } from '@/widgets/Content/ui/Content'
 import { Footer } from '@/widgets/Footer/ui/Footer'
-import { Nav } from '@/widgets/Nav/ui/Nav'
+import { SideBar } from '@/widgets/SideBar/ui/SideBar'
 
 export function MainWrapper({ children }: PropsWithChildren) {
   return <div className={styles.wrapper}>
-    <Nav className={styles.nav} />
+    <SideBar className={styles.sidebar} />
     <Content className={styles.content}>
       { children }
     </Content>

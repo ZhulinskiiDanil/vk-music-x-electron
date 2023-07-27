@@ -1,6 +1,6 @@
-export const ForwardIcon = ({
+export const ForwardIcon: React.FC<React.SVGAttributes<SVGSVGElement>> = ({
   fill, stroke, strokeWidth, ...props
-}: React.SVGAttributes<SVGSVGElement>) => (
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill={fill || "none"}

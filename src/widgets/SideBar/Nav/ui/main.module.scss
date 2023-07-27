@@ -1,0 +1,32 @@
+.nav {
+  padding: 2rem 0;
+  
+  .link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .8rem 8%;
+    opacity: .7;
+    transition: .2s ease;
+  
+    &:hover {
+      opacity: 1;
+
+      .icon {
+        transform: scale(.9);
+      }
+    }
+  
+    .icon {
+      $size: 1.8rem;
+      width: $size;
+      height: $size;
+      transition: .2s ease;
+    }
+  
+    .title {
+      letter-spacing: .05rem;
+      font-weight: 500;
+    }
+  }
+}

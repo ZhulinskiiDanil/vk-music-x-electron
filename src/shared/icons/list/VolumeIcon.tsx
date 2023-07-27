@@ -1,6 +1,6 @@
-export const VolumeIcon = ({
+export const VolumeIcon: React.FC<React.SVGAttributes<SVGSVGElement> & { muted?: boolean }> = ({
   fill, stroke, strokeWidth, muted = false, ...props
-}: React.SVGAttributes<SVGSVGElement> & { muted?: boolean }) => (
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill={fill || "none"}

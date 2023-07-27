@@ -1,0 +1,24 @@
+.playlists {
+  background: #1a1a1a;
+  height: 100%;
+  user-select: none;
+
+  h3.title {
+    padding: 1rem;
+    background: #222;
+    font-weight: 400;
+    font-size: 1rem;
+    background-image: linear-gradient(
+      20deg,
+      rgba(230, 230, 230, .05),
+      transparent 50%
+    );
+    border: 0 solid #333;
+    border-width: 1px 0;
+  }
+
+  .items {
+    display: flex;
+    flex-direction: column;
+  }
+}

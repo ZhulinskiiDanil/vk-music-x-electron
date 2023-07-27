@@ -1,0 +1,63 @@
+.item {
+  display: flex;
+  align-items: center;
+  padding: .8rem 1rem;
+  gap: 1rem;
+  transition: .15s ease;
+  cursor: pointer;
+
+  &.active {
+    background: #252525;
+
+    .image {
+      box-shadow: -.2rem .2rem 1rem 0 rgba(0, 0, 0, 0.4);
+    }
+
+    .data .title {
+      color: #98c2e4;
+      font-weight: 500;
+    }
+  }
+  
+  &:hover {
+    background: #252525;
+  }
+
+  .image {
+    $size: 2.6rem;
+    width: $size;
+    height: $size;
+    background: #333;
+    border-radius: .4rem;
+    object-fit: cover;
+  }
+
+  .data {
+    line-height: 1.2;
+
+    .title {
+
+    }
+
+    .more {
+      display: flex;
+      align-items: center;
+      font-size: .8rem;
+
+      .circle {
+        display: inline-block;
+        width: 0.3rem;
+        height: 0.3rem;
+        margin: 0 .3rem;
+        transform: translate3d(0, 25%, 0);
+        border-radius: 50%;
+        background: white;
+        opacity: .4;
+      }
+
+      span {
+        opacity: .6;
+      }
+    }
+  }
+}
