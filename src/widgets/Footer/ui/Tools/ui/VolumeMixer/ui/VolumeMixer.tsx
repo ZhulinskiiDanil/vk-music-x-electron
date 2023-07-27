@@ -3,14 +3,20 @@ import styles from './main.module.scss'
 // Components
 import { VolumeIcon } from '@/shared/icons'
 import { ProgressBar } from '@/entities/ProgressBar/ui/ProgressBar'
-import { useState } from 'react'
+
+// Redux
+import { useSelector } from 'react-redux'
+import { RootState } from '@/app/redux'
+import { useDispatch } from 'react-redux'
+import { settingsActions } from '@/app/redux'
 
 export function VolumeMixer() {
-  const [volume, setVolume] = useState(75)
+  const dispatch = useDispatch()
+  const volume = useSelector((state: RootState) => state.settings.volume)
   const muted = volume <= 0
 
   function onValue(val: number) {
-    setVolume(val)
+    dispatch(settingsActions.setVolume({ volume: val }))
   }
 
   return <div className={styles.volumeMixer}>
