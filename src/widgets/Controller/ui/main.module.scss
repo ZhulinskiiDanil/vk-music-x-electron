@@ -1,0 +1,112 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #1e1e1e;
+  border-top: 1px solid #333;
+  color: white;
+
+  .controller {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: .6rem;
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        $size: 2rem;
+        width: $size;
+        height: $size;
+        border: none;
+        outline: none;
+        background: none;
+        cursor: pointer;
+        transition: transform .1s ease;
+
+        &:hover {
+          transform: scale(1.04);
+        }
+
+        &:active {
+          transform: scale(.96);
+        }
+
+        &:has(.status) {
+          background: white;
+          border-radius: 50%;
+          padding: .4rem;
+        }
+      }
+
+      .icon {
+        width: 100%;
+        height: 100%;
+      }
+
+      .play {
+        transform: translate3d(5%, 0, 0);
+      }
+    }
+
+    .songProgress {
+      display: flex;
+      align-items: center;
+      width: min(100%, 400px);
+      gap: .6rem;
+
+      &:hover,
+      &.active {
+        .progress {
+          .fill::after {
+            opacity: 1;
+          }
+        }
+      }
+
+      .progress {
+        $progressHeight: .3rem;
+        height: $progressHeight;
+        background: #222;
+        width: 100%;
+        border-radius: 1rem;
+        cursor: pointer;
+
+        .fill {
+          position: relative;
+          width: 30%;
+          height: 100%;
+          border-radius: 2rem;
+          background: white;
+
+          &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate3d(50%, -50%, 0);
+            width: calc($progressHeight * 2.4);
+            height: calc($progressHeight * 2.4);
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+            transition: .1s ease;
+            opacity: 0;
+          }
+        }
+      }
+
+      .time {
+        flex-shrink: 0;
+        font-size: .7rem;
+        opacity: .6;
+      }
+    }
+  }
+}

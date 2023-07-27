@@ -1,0 +1,19 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: clamp(220px, 35vw, 400px) 1fr;
+  grid-template-rows: 1fr auto;
+  align-content: space-between;
+  height: 100dvh;
+  
+  .nav {
+    
+  }
+
+  .content {
+    
+  }
+
+  .controller {
+    grid-column: 1 / 3;
+  }
+}
