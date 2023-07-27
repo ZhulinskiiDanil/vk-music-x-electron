@@ -1,4 +1,4 @@
-import { app, BrowserWindow, shell, ipcMain } from 'electron'
+import { app, BrowserWindow, shell, ipcMain, nativeTheme } from 'electron'
 import { release } from 'node:os'
 import { join } from 'node:path'
 import { update } from './update'
@@ -58,6 +58,8 @@ async function createWindow() {
       contextIsolation: false,
     },
   })
+
+  nativeTheme.themeSource = "dark"
   
   ipcMain.handle("close-window", () => {
     if (!app) return
