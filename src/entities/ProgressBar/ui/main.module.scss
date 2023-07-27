@@ -20,6 +20,12 @@
     }
   }
 
+  &.zero {
+    .fill {
+      width: 0 !important;
+    }
+  }
+
   .fill {
     position: relative;
     width: var(--value);

@@ -8,6 +8,12 @@
     flex-shrink: 0;
     width: 1rem;
     height: 1rem;
+    transition: .15s ease;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .8;
+    }
   }
 
   .progress {

@@ -5,13 +5,16 @@ import clsx from 'clsx'
 import { useProgress } from '../model/useProgress'
 
 export function ProgressBar({
-  className, onValue, progress, ...props
+  className, onValue, progress, zero = false, ...props
 }: React.HTMLAttributes<HTMLDivElement> & {
-  progress?: number, onValue?: (value: number) => void
+  zero?: boolean,
+  progress?: number,
+  onValue?: (value: number) => void
 }) {
   const { ref, active } = useProgress(onValue, progress)
   const classList = clsx(styles.progress, className, {
-    [styles.active]: active
+    [styles.active]: active,
+    [styles.zero]: zero
   })
 
   return <div ref={ref} className={classList} {...props}>
