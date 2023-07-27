@@ -47,6 +47,8 @@ async function createWindow() {
     icon: join(process.env.PUBLIC, 'favicon.ico'),
     minHeight: 800,
     minWidth: 900,
+    autoHideMenuBar: true,
+    frame: false,
     webPreferences: {
       preload,
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
@@ -55,6 +57,29 @@ async function createWindow() {
       nodeIntegration: true,
       contextIsolation: false,
     },
+  })
+  
+  ipcMain.handle("close-window", () => {
+    if (!app) return
+    app.quit()
+  })
+  
+  ipcMain.handle("hide-window", () => {
+    if (!win) return
+    win.minimize()
+  })
+  
+  ipcMain.handle("fullscreen-window", () => {
+    if (!win) return
+    win.setFullScreen(!win.isFullScreen())
+  })
+
+  ipcMain.on('set-ignore-mouse-events', (event, ignore, options) => {
+    const win = BrowserWindow.fromWebContents(event.sender)
+    
+    if (win) {
+      win.setIgnoreMouseEvents(ignore, options)
+    }
   })
 
   if (url) { // electron-vite-vue#298

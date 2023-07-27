@@ -1,3 +1,22 @@
+import { ipcRenderer } from "electron"
+
+window.addEventListener('DOMContentLoaded', () => {
+  const el = document.getElementById('clickThroughElement')
+
+  ipcRenderer.on("close-window", () => {
+    window.close()
+  })
+
+  if (el) {
+    el.addEventListener('mouseenter', () => {
+      ipcRenderer.send('set-ignore-mouse-events', true, { forward: true })
+    })
+    el.addEventListener('mouseleave', () => {
+      ipcRenderer.send('set-ignore-mouse-events', false)
+    })
+  }
+})
+
 // function domReady(condition: DocumentReadyState[] = ['complete', 'interactive']) {
 //   return new Promise(resolve => {
 //     if (condition.includes(document.readyState)) {
