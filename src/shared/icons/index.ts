@@ -1,2 +1,5 @@
 export * from './list/PlayIcon'
 export * from './list/PauseIcon'
+export * from './list/ForwardIcon'
+export * from './list/BackwardIcon'
+export * from './list/VolumeIcon'

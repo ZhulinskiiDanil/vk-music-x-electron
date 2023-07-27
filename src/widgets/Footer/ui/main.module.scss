@@ -1,0 +1,11 @@
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
+  background: #1e1e1e;
+  border-top: 1px solid #333;
+  color: white;
+  user-select: none;
+}

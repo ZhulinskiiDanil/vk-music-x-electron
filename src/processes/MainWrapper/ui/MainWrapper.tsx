@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react'
 
 // Components
 import { Content } from '@/widgets/Content/ui/Content'
-import { Controller } from '@/widgets/Controller/ui/Controller'
+import { Footer } from '@/widgets/Footer/ui/Footer'
 import { Nav } from '@/widgets/Nav/ui/Nav'
 
 export function MainWrapper({ children }: PropsWithChildren) {
@@ -12,6 +12,6 @@ export function MainWrapper({ children }: PropsWithChildren) {
     <Content className={styles.content}>
       { children }
     </Content>
-    <Controller className={styles.controller} />
+    <Footer className={styles.footer} />
   </div>
 }
