@@ -8,6 +8,7 @@ header.header {
   padding: 6rem 2rem 2rem 2rem;
   gap: 1rem;
   background: rgb(var(--avgColor));
+  user-select: none;
 
   &::after {
     content: "";
@@ -65,11 +66,31 @@ header.header {
       font-family: 'Raleway';
     }
 
-    .user {
+    .footer {
+      display: flex;
+      align-items: center;
       font-size: .8rem;
+      gap: .2em;
+
+      > * {
+        display: inline-block;
+      }
+
+      .circle {
+        width: 0.2rem;
+        height: 0.2rem;
+        border-radius: 50%;
+        background: white;
+        opacity: .6;
+        margin-left: .1rem;
+      }
 
       .username {
         font-weight: 600;
+      }
+
+      .tracksCount {
+        
       }
     }
   }

@@ -11,6 +11,7 @@ export interface IPlaylists {
     title: string
     imageUrl?: string
     Icon?: React.FC<React.SVGAttributes<SVGSVGElement>>
+    count: number
   }
 }
 

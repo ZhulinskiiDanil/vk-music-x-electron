@@ -43,7 +43,7 @@ const indexHtml = join(process.env.DIST, 'index.html')
 
 async function createWindow() {
   win = new BrowserWindow({
-    title: 'Main window',
+    title: 'VKMusic X',
     icon: join(process.env.PUBLIC, 'favicon.ico'),
     minHeight: 800,
     minWidth: 900,
@@ -58,6 +58,9 @@ async function createWindow() {
       contextIsolation: false,
     },
   })
+
+  win.setBackgroundColor("#000")
+  win.setTitle("VKMusic X")
 
   nativeTheme.themeSource = "dark"
   
