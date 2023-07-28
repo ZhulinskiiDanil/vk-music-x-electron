@@ -52,4 +52,21 @@
       }
     }
   }
+
+  .tools {
+    display: flex;
+    gap: .4rem;
+
+    .tool {
+      width: 1.3rem;
+      height: 1.3rem;
+      object-fit: contain;
+      transition: .15s ease;
+      cursor: pointer;
+      
+      &:hover {
+        
+      }
+    }
+  }
 }

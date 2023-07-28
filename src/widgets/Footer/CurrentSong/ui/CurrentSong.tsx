@@ -1,5 +1,8 @@
 import styles from './main.module.scss'
 
+// Components
+import { HeartIcon } from '@/shared/icons'
+
 export function CurrentSong() {
   return <div className={styles.song}>
     <div className={styles.image}>
@@ -17,7 +20,10 @@ export function CurrentSong() {
       </p>
     </div>
     <div className={styles.tools}>
-      TOOLS
+      <HeartIcon
+        className={styles.tool}
+        stroke='white'
+      />
     </div>
   </div>
 }

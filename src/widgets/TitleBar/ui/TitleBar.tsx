@@ -25,7 +25,14 @@ export function TitleBar() {
 
   return <div className={styles.titlebar}>
     <div className={styles.title}>
-      vk music x
+      <img
+        className={styles.logo}
+        src="/favicon.png"
+        alt="Image"
+      />
+      <span>
+        vk music x
+      </span>
     </div>
     <div className={styles.tools}>
       <button onClick={hide} className={clsx(styles.tool, styles.hide)}>
