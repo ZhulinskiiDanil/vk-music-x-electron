@@ -9,6 +9,7 @@ header.header {
   gap: 1rem;
   background: rgb(var(--avgColor));
   user-select: none;
+  flex-shrink: 0;
 
   &::after {
     content: "";

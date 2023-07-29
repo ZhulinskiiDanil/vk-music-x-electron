@@ -1,5 +1,6 @@
 .nav {
   padding: 2rem 0;
+  user-select: none;
   
   .link {
     display: flex;
@@ -7,7 +8,7 @@
     gap: 1rem;
     padding: .8rem 8%;
     opacity: .7;
-    transition: .2s ease;
+    transition: opacity .2s ease;
   
     &:hover {
       opacity: 1;
@@ -21,7 +22,7 @@
       $size: 1.8rem;
       width: $size;
       height: $size;
-      transition: .2s ease;
+      transition: transform .2s ease;
     }
   
     .title {

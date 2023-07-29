@@ -1,0 +1,125 @@
+.track {
+  $imageSize: 3rem;
+  $statusIconSize: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  padding: .2rem 0;
+  border-radius: .4rem;
+  font-weight: 300;
+  user-select: none;
+  -webkit-user-drag: none;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, .1);
+
+    .index {
+      display: none;
+    }
+
+    .status .play {
+      display: block !important;
+    }
+  }
+
+  .status .pause {
+    display: none;
+  }
+
+  &.active {
+    .index {
+      display: block;
+      color: #69bcff;
+      font-weight: 500;
+    }
+    
+    .status {
+      .play {
+        display: none !important;
+      }
+
+      &:hover {
+        .index {
+          display: none;
+        }
+
+        .pause {
+          display: block;
+        }
+      }
+    }
+
+    .data {
+      .trackName {
+        color: #69bcff;
+      }
+    }
+  }
+
+  *[data-text-center] {
+    text-align: center;
+  }
+
+  .album,
+  .addedAt,
+  .data .more .author {
+    opacity: .5;
+    font-size: 14px;
+    transition: .1s ease;
+  }
+
+  .album,
+  .data .more .author {
+    &:hover {
+      text-decoration: underline;
+      opacity: 1;
+    }
+  }
+
+  .status {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $imageSize;
+    height: $imageSize;
+
+    .icon {
+      width: $statusIconSize;
+      height: $statusIconSize;
+
+      &.play {
+        display: none;
+        transform: translate3d(5%, 0, 0);
+      }
+    }
+  }
+
+  .image {
+    width: $imageSize;
+    height: $imageSize;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .data {
+    flex-shrink: 0;
+    padding: 0 1rem;
+
+    .trackName {
+      font-weight: 400;
+    }
+
+    .more {
+      .author {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .album,
+  .addedAt {
+    width: 100%;
+  }
+}
