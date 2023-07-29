@@ -1,8 +1,15 @@
 .container {
+  display: flex;
+  flex-direction: column;
   position: relative;
   padding: 0 .4rem;
   z-index: 1;
   height: 100%;
+
+  .list {
+    height: 100%;
+    overflow: auto;
+  }
 
   .tools {
     display: flex;
@@ -59,10 +66,5 @@
     &:hover {
       opacity: 0;
     }
-  }
-
-  .list {
-    height: 100%;
-    overflow: auto;
   }
 }

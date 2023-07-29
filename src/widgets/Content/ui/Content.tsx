@@ -1,6 +1,8 @@
 import styles from './main.module.scss'
-import { PropsWithChildren } from 'react'
 import clsx from 'clsx'
+
+// Types
+import { PropsWithChildren } from 'react'
 
 export function Content({
   children, className
