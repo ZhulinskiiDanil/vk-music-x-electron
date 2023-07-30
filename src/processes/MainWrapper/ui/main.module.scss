@@ -5,6 +5,10 @@
   align-content: space-between;
   height: 100dvh;
   padding-top: 2rem;
+
+  &:not(:has(.sidebar)) {
+    grid-template-columns: 1fr;
+  }
   
   .sidebar {
     

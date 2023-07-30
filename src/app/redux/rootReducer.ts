@@ -1,5 +1,7 @@
+import { authReducer } from "./slices/authSlice";
 import { settingsReducer } from "./slices/settingsSlice";
 
 export const rootReducer = {
-  settings: settingsReducer
+  auth: authReducer,
+  settings: settingsReducer,
 }

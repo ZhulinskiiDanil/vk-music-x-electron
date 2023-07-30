@@ -7,7 +7,7 @@ import { HomeIcon, SearchIcon } from '@/shared/icons'
 
 export function Nav({ className }: { className?: string }) {
   const classList = clsx(styles.nav, className)
-
+  
   return <nav className={classList}>
     <NavItem
       link='/'

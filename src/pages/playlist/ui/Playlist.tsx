@@ -4,7 +4,7 @@ import { PlaylistHeader } from '@/widgets/PlaylistHeader/ui/PlaylistHeader'
 import { PlaylistTracksList } from '@/widgets/PlaylistTracksList/ui/PlaylistTracksList'
 
 export default function Playlist() {
-  return <MainWrapper>
+  return <MainWrapper sidebar footer>
     <PlaylistHeader />
     <PlaylistTracksList />
   </MainWrapper>

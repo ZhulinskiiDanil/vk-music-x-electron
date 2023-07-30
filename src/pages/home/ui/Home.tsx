@@ -4,7 +4,7 @@ import styles from './main.module.scss'
 import { MainWrapper } from '@/processes/MainWrapper/ui/MainWrapper'
 
 export default function App() {
-  return <MainWrapper>
+  return <MainWrapper sidebar footer>
     
   </MainWrapper>
 }
