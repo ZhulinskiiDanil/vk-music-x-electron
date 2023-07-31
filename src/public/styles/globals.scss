@@ -1,12 +1,5 @@
-@font-face {
-  src: url('/fonts/Jost/Jost-Default.ttf');
-  font-family: 'Jost';
-}
-
-@font-face {
-  src: url('/fonts/Raleway/Raleway.ttf');
-  font-family: 'Raleway';
-}
+@import './vars';
+@import './fonts';
 
 * {
   margin: 0;

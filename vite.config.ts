@@ -23,6 +23,13 @@ export default defineConfig(({ command }) => {
         '@': path.join(__dirname, 'src')
       },
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import '@/public/styles/globals.scss';\n`,
+        },
+      }
+    },
     plugins: [
       react(),
       electron([

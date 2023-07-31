@@ -9,31 +9,19 @@ import SignInPage from "@/pages/auth/sign-in/ui/SignIn";
 const router = createHashRouter([
   {
     path: "/",
-    element: <HomePage />,
-    handle: () => {
-      console.log("Home page");
-    }
+    element: <HomePage />
   },
   {
     path: '/playlist',
-    element: <PlaylistPage />,
-    handle: () => {
-      console.log("Playlist page");
-    }
+    element: <PlaylistPage />
   },
   {
     path: '/search',
-    element: <SearchPage />,
-    handle: () => {
-      console.log("Search page");
-    }
+    element: <SearchPage />
   },
   {
     path: '/auth/sign-in',
-    element: <SignInPage />,
-    handle: () => {
-      console.log("SignIn page");
-    }
+    element: <SignInPage />
   }
 ]);
 

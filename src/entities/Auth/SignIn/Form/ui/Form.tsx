@@ -104,7 +104,7 @@ export function SignInForm() {
     </div>}
     <Input
       type='submit'
-      value='Подтвердить'
+      value='Продолжить'
       disabled={loading}
     />
   </form>
