@@ -1,19 +1,28 @@
 import styles from './main.module.scss'
 import { ApiInstance } from '@/app/api'
+import { SignInResponse } from '@/app/api/auth/slice'
 
 // Hooks
+import useCookies from 'react-cookie/cjs/useCookies'
 import { ChangeEvent, FormEvent, useState } from 'react'
-import { SignInResponse } from '@/app/api/auth/slice'
 
 type CaptchaResponse = Omit<NonNullable<SignInResponse>, "user_id" | "access_token" | "expires_in"> & { result: string }
 
-export function SignInForm() {
-  const [login, setLogin] = useState("")
-  const [password, setPassword] = useState("")
+export function SignInForm(props: any) {
+  const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const [captcha, setCaptcha] = useState<false | CaptchaResponse>(false)
-  const [error, setError] = useState("")
-
+  const [cookies, setCookie] = useCookies(['token']);
+  
+  const [login, setLogin] = useState("")
+  const [password, setPassword] = useState("")
+  
+  function setToken(token: string) {
+    setCookie('token', token, {
+      maxAge: 1000 * 60 * 60 * 24 * 365 // 1 year
+    })
+  }
+  
   function changeLogin(e: ChangeEvent<HTMLInputElement>) {
     setLogin(e.target.value)
   }
@@ -53,14 +62,39 @@ export function SignInForm() {
     setCaptcha(false)
     setLoading(false)
     
+    // DEBUG WHILE FOR 2FA IS NOT SUPPORTED
+    console.log(response);
+    
     if (response) {
-      if (response?.error === "need_captcha") {
-        setCaptcha({ ...response, result: "" })
-        setError("Требуется решить капчу")
-      } else if (response?.error === "invalid_client") {
-        setError("Неверный логин или пароль.")
-      } else if (response?.access_token) {
-        window.location.hash = "#/"
+      switch (response?.error) {
+        case "need_captcha": {
+          setCaptcha({ ...response, result: "" })
+          setError("Требуется решить капчу")
+
+          break;
+        }
+        case "invalid_client": {
+          setError("Неверный логин или пароль.")
+
+          break;
+        }
+        case "need_validation": {
+          if (response?.ban_info) {
+            const user = response.ban_info.member_name
+            setError(`Пользователь ${user} находится в бане.`)
+          }
+
+          break;
+        }
+        default: {
+          if (response?.access_token) {
+            setToken(response.access_token)
+
+            window.location.hash = "#/"
+          } else {
+            setError(`Неизвестная ошибка, возможно пользователь находится в бане.`)
+          }
+        }
       }
     }
   }

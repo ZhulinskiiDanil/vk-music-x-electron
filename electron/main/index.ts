@@ -1,4 +1,4 @@
-import '../server'
+import { serverInit } from '../server'
 import { app, BrowserWindow, shell, ipcMain, nativeTheme } from 'electron'
 import { release } from 'node:os'
 import { join } from 'node:path'
@@ -66,25 +66,7 @@ async function createWindow() {
 
   nativeTheme.themeSource = "dark"
 
-  ipcMain.handle("close-window", () => {
-    if (!app) return
-    app.quit()
-  })
-  
-  ipcMain.handle("hide-window", () => {
-    if (!win) return
-    win.minimize()
-  })
-  
-  ipcMain.handle("fullscreen-window", () => {
-    if (!win) return
-  
-    if (!win.isMaximized()) {
-      win.maximize()
-    } else {
-      win.unmaximize()
-    }
-  })
+  serverInit(win)
 
   ipcMain.on('set-ignore-mouse-events', (event, ignore, options) => {
     const win = BrowserWindow.fromWebContents(event.sender)

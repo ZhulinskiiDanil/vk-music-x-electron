@@ -6,11 +6,14 @@ import { Provider } from 'react-redux'
 
 // Types
 import { PropsWithChildren } from "react";
+import { CookiesProvider } from 'react-cookie';
 
 export function WithProviders({ children }: PropsWithChildren) {
   return <Provider store={store}>
-    <AuthProvider>
-      { children }
-    </AuthProvider>
+    <CookiesProvider>
+      <AuthProvider>
+        { children }
+      </AuthProvider>
+    </CookiesProvider>
   </Provider>
 }

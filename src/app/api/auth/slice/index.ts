@@ -16,9 +16,15 @@ interface SignoutDTO {
 }
 
 export type SignInResponse = (AuthSliceInitialState["main"] & {
-  error: "need_captcha" | "invalid_client"
+  error: "need_captcha" | "invalid_client" |
+    "need_validation" | "otp_format_is_incorrect" | "wrong_otp"
   error_description: string
   error_type: "username_or_password_is_incorrect"
+  ban_info?: {
+    access_token: string
+    member_name: string
+    message: string
+  }
 } & {
   captcha_attempt: number
   captcha_img: string

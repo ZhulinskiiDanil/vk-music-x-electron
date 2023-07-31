@@ -22,11 +22,12 @@ export const authSlice = createSlice({
   name: "auth",
   initialState: { ...initialState },
   reducers: {
-    init(state, action) {
-      const payload = action.payload as InitialState["main"]
-
-      if (payload?.access_token) {
-        state.main = { ...state.main, ...payload }
+    init(state, action: { payload: Partial<InitialState["main"]> }) {
+      if (action.payload?.access_token) {
+        state.main = {
+          ...state.main,
+          ...action.payload
+        }
       }
     }
   }
