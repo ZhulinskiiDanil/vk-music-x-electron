@@ -1,3 +1,4 @@
+import { ipcRenderer as ipc } from "electron";
 
 // Hooks
 import { PropsWithChildren, useEffect } from "react";
@@ -15,16 +16,27 @@ export function AuthProvider({ children }: PropsWithChildren) {
   const dispatch = useDispatch()
   
   useEffect(() => {
-    if (!authState.main.access_token && !cookies.token) {
-      if (!window.location.pathname.includes("auth")) {
-        window.location.hash = "#/auth/sign-in"
-      }
-    } else if (!authState.main.access_token) {
-      dispatch(authActions.init({ access_token: cookies.token }))
-    }
-  }, [authState, cookies.token])
+    (async () => {
+      let isAuthorized = false;
 
-  return <>
-    { children }
-  </>
+      try {
+        isAuthorized = await ipc.invoke("execute", {
+          access_token: cookies.token || false // string | boolean
+        })
+      } catch(err) {
+        console.log(err);
+        isAuthorized = false;
+      }
+
+      if (!isAuthorized) {
+        if (!window.location.pathname.includes("auth")) {
+          window.location.hash = "#/auth/sign-in"
+        }
+      } else if (!authState.main.access_token) {
+        dispatch(authActions.init({ access_token: cookies.token }))
+      }
+    })()
+  }, [authState.main.access_token, cookies.token])
+
+  return <>{ children }</>
 }
